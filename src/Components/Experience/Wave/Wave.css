@@ -1,0 +1,53 @@
+.wave-wrapper {
+  position: absolute;   /* stay inside section */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  z-index: 0;           /* send behind card */
+}
+
+.wave-track {
+  display: flex;
+  width: 200%;
+  position: absolute;
+  bottom: 0;
+}
+
+.wave-track svg {
+  flex-shrink: 0;
+  width: 50%;
+  height: 100%;
+}
+
+/* Background wave (slower) */
+.wave-back {
+  opacity: 0.5;
+  animation: waveSlide 20s linear infinite;
+  z-index: 1;
+}
+
+/* Foreground wave (faster) */
+.wave-front {
+  opacity: 0.8;
+  animation: waveSlide 10s linear infinite;
+  z-index: 2;
+}
+
+@keyframes waveSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.experience-section {
+  position: relative; /* contains absolute wave */
+  z-index: 1;
+  background: #fdfdfd; /* section background */
+  padding-bottom: 120px; /* just enough space so wave overlaps card */
+}
+
+.experience-card {
+  position: relative;
+  z-index: 2; /* card above wave */
+}

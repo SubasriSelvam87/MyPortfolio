@@ -1,0 +1,120 @@
+:root {
+  --primary-bg: rgba(112, 178, 198, 1); /* main card background */
+  --accent-bg: #6f7980; /* hover bubble background */
+}
+
+.experience-card {
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  height: 400px;
+  border-radius: 24px;
+  background: var(--primary-bg);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.4s ease;
+}
+
+.role {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.company {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.duration {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.bubble {
+  position: absolute;
+  background: var(--accent-bg);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  z-index: 5;
+}
+
+.bubble-1 {
+  width: 128px;
+  height: 176px;
+  top: -128px;
+  left: -64px;
+}
+
+.bubble-2 {
+  width: 144px;
+  height: 176px;
+  bottom: -128px;
+  right: -64px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.card-center {
+  position: relative;
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.experience-card:hover .card-center {
+  opacity: 0;
+}
+
+.experience-card:hover .bubble-1 {
+  top: -20px;
+  left: -16px;
+  width: 140%;
+  height: 140%;
+  border-radius: 40%;
+}
+
+.experience-card:hover .bubble-2 {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: 1rem;
+}
+
+.experience-card:active {
+  transform: scale(0.98);
+}
+
+.bubble-2-text {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.experience-card:hover .bubble-2-text {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 766px) {
+  .experience-card {
+    height: fit-content !important;
+  }
+}
